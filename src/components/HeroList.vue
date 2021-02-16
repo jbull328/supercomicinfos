@@ -1,6 +1,7 @@
 <template>
     <div>
-        <table class="table table-dark table-striped table-hover">
+        <HeroDetail id="hero-detail-container" class="hero-data" :selectedHero="selectedHero" :style="{display: showHeroDetail ? 'block' : 'none'}" @close="closeHeroDetail" />
+        <table class="table table-dark table-striped table-hover col-8 container hero-data" id="hero-list-container" :style="{display: showHeroDetail ? 'none' : ''}" >
             <thead>
                 <tr>
                     <th>Name</th>
@@ -8,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(hero, index) in results" :key="`h-${index}`" @click="showComics(hero.comics)">
+                <tr v-for="(hero, index) in results" :key="`h-${index}`" @click="showComics(hero)">
                 <td data-label="Name">{{hero.name}}</td>
                 <td data-label="Number of Comics">{{hero.comics.available}}</td>
                 </tr>
@@ -19,11 +20,15 @@
 
 <script>
     import gql from 'graphql-tag'
-    
+    import HeroDetail from './HeroDetail.vue'
+
     export default {
+        name: 'HeroList',
+        components: {HeroDetail},
         data() {
             return {
-                herosTitles: ''
+                selectedHero: {},
+                showHeroDetail: false,
             }
         },
         apollo: {
@@ -40,13 +45,23 @@
         }}`,
         },
         methods: {
-            showComics(t) {
-                this.herosTitles = t
+            showComics(h) {
+                this.selectedHero = h
+                this.showHeroDetail = true
+            },
+            closeHeroDetail() {
+                this.herosTitles = ''
+                this.showHeroDetail = false
             }
         }
     }
 </script>
 
 <style scoped>
-
+    #hero-detail-container {
+        z-index: 99;
+    }
+    .hero-data {
+        text-align: left;
+    }
 </style>
