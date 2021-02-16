@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(hero, index) in results" :key="`h-${index}`" @click="showComics(hero)">
+                <tr v-for="(hero, index) in results" :key="`h-${index}`" @click="showComics(hero); defineHeroImg()">
                 <td data-label="Name">{{hero.name}}</td>
                 <td data-label="Number of Comics">{{hero.comics.available}}</td>
                 </tr>
@@ -36,10 +36,21 @@
             id,
             name,
             description,
+            thumbnail {
+                path,
+                extension
+            },
             comics {
                 available
                 items {
-                    name
+                    name,
+                    resourceURI
+                }
+            },
+            series {
+                items {
+                    name,
+                    resourceURI
                 }
             }  
         }}`,
@@ -52,7 +63,7 @@
             closeHeroDetail() {
                 this.herosTitles = ''
                 this.showHeroDetail = false
-            }
+            },
         }
     }
 </script>

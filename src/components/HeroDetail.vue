@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+        <div>
+            <img :src='`${selectedHero.thumbnail.path}/landscape_amazing.${selectedHero.thumbnail.extension}`' />
+        </div>
         <div class="top-row">
             <div id="hero-name">{{selectedHero.name}}</div>
             <div @click="closeHeroDetail" id="close-btn" class="btn btn-dark">X</div>
