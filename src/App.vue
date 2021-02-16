@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-   
+    <DataExample />
     
   </div>
 </template>
 
 <script>
+  import DataExample from "./components/DataExample"
 
-
-export default {
-  name: 'App',
-  components: {
-    
+  export default {
+    name: 'App',
+    components: {
+      DataExample
+    }
   }
-}
 </script>
 
 <style>
