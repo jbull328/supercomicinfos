@@ -8,7 +8,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(hero, index) in results" :key="`h-${index}`">
+                <tr v-for="(hero, index) in results" :key="`h-${index}`" @click="showComics(hero.comics)">
                 <td data-label="Name">{{hero.name}}</td>
                 <td data-label="Number of Comics">{{hero.comics.available}}</td>
                 </tr>
@@ -21,6 +21,11 @@
     import gql from 'graphql-tag'
     
     export default {
+        data() {
+            return {
+                herosTitles: ''
+            }
+        },
         apollo: {
             results: gql`{results {
             id,
@@ -33,6 +38,11 @@
                 }
             }  
         }}`,
+        },
+        methods: {
+            showComics(t) {
+                this.herosTitles = t
+            }
         }
     }
 </script>
