@@ -6,12 +6,18 @@
                 <tr>
                     <th>Name</th>
                     <th>Number of Comics</th>
+                    <th>Number of Series</th>
+                    <th>Number of Events</th>
+                    <th>Number of Stories</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(hero, index) in results" :key="`h-${index}`" @click="showComics(hero); defineHeroImg()">
                 <td data-label="Name">{{hero.name}}</td>
                 <td data-label="Number of Comics">{{hero.comics.available}}</td>
+                <td data-label="Number of Series">{{hero.series.available}}</td>
+                <td data-label="Number of Events">{{hero.events.available}}</td>
+                <td data-label="Number of Stories">{{hero.stories.available}}</td>
                 </tr>
             </tbody>
         </table>
@@ -48,11 +54,26 @@
                 }
             },
             series {
+                available,
                 items {
                     name,
                     resourceURI
                 }
-            }  
+            },
+            events {
+                available,
+                items {
+                    name,
+                    resourceURI
+                }
+            },
+            stories {
+                available,
+                items {
+                    name,
+                    resourceURI
+                }
+            }   
         }}`,
         },
         methods: {
