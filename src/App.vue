@@ -1,24 +1,24 @@
 <template>
   <div id="app">
-   
+    <HeroList />
     
   </div>
 </template>
 
 <script>
+  import HeroList from "./components/HeroList"
 
-
-export default {
-  name: 'App',
-  components: {
-    
+  export default {
+    name: 'App',
+    components: {
+      HeroList
+    }
   }
-}
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Saira Semi Condensed, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
