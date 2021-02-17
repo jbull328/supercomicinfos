@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="title">Super Comic Info</div>
         <HeroDetail id="hero-detail-container" class="hero-data" :selectedHero="selectedHero" :style="{display: showHeroDetail ? 'block' : 'none'}" @close="closeHeroDetail" />
         <table class="table table-dark table-striped table-hover col-8 container hero-data" id="hero-list-container" :style="{display: showHeroDetail ? 'none' : ''}" >
             <thead>
@@ -93,7 +94,14 @@
     #hero-detail-container {
         z-index: 99;
     }
+    #hero-list-container {
+        margin-top: 255px;
+    }
     .hero-data {
         text-align: left;
+    }
+    .title {
+        font-size: 4rem;
+        font-weight: 500;
     }
 </style>
