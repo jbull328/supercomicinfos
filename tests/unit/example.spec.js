@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import HeroList from '@/components/HeroList'
 import HeroDetail from '@/components/HeroDetail'
+//I ran into an issue with my environment and tests didn't work as expected. :(
 
 describe('HeroList.vue', () => {
   it('renders a list of heros', () => {
@@ -13,6 +14,7 @@ describe('HeroList.vue', () => {
     })
 
     console.log(wrapper.html())
+
   })
 })
 
@@ -23,8 +25,9 @@ describe('HeroDetail.vue', () => {
     const wrapper = shallowMount(HeroDetail, {
       propsData: {
         selectedHero
-      }
+      },
     })
     console.log(wrapper.html())
+    expect(wrapper.text()).toContain('Secret Invasion')
   })
 })
