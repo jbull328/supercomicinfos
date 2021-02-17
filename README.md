@@ -4,7 +4,7 @@
 ```
 npm install
 ```
-### Before Running Vue server start up the Graphql Backend, and leave the terminal running.
+### Before running the Vue server start up the Graphql Backend, and leave the terminal running.
 ```
 cd graphql
 ```
@@ -12,7 +12,7 @@ cd graphql
 node graphqlComics.js
 ```
 
-### Open another terminal window  and run the following commands for to start the development server.
+### Open another terminal window  and run the following commands to start the development server.
 ```
 npm run serve
 ```
