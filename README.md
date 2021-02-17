@@ -26,7 +26,7 @@ npm run build
 ```
 npm run lint
 ```
-### Runs Unit Tests
+### Runs Unit Tests, Note: not fully implimented... RIP, bonus points. :(
 ```
 npm run test:unit
 ```
